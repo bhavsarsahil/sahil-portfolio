@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sahil Bhavsar – Aspiring Data Analyst | BCA Graduate 2025 | Python, Pandas, SQL, Excel Expert based in India." />
+  <meta name="keywords" content="Sahil Bhavsar, Data Analyst, BCA Graduate, Python, Pandas, SQL, Excel, Business Analyst, Portfolio" />
+  <meta name="author" content="Sahil Bhavsar" />
+  <meta property="og:title" content="Sahil Bhavsar | Data Analyst Portfolio" />
+  <meta property="og:description" content="Turning Data into Decisions – Aspiring Data Analyst Portfolio" />
+  <meta property="og:type" content="website" />
+  <title>Sahil Bhavsar | Data Analyst Portfolio</title>
+
+  <!-- Favicon (inline SVG) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230d1117'/><rect x='15' y='55' width='14' height='30' rx='3' fill='%2300d4ff'/><rect x='35' y='35' width='14' height='50' rx='3' fill='%230ea5e9'/><rect x='55' y='45' width='14' height='40' rx='3' fill='%2300d4ff'/><rect x='75' y='20' width='14' height='65' rx='3' fill='%230ea5e9'/></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════  NAVBAR  ═══════════════════════ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo" aria-label="Sahil Bhavsar Home">
+        <span class="logo-bracket">&lt;</span>SB<span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#home"    class="nav-link" data-section="home">Home</a></li>
+        <li><a href="#about"   class="nav-link" data-section="about">About</a></li>
+        <li><a href="#skills"  class="nav-link" data-section="skills">Skills</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#resume"  class="nav-link" data-section="resume">Resume</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════  HERO  ═══════════════════════ -->
+  <section id="home" class="hero-section">
+    <!-- Animated grid background -->
+    <div class="grid-bg" aria-hidden="true"></div>
+    <!-- Floating particles -->
+    <div class="particles" id="particles" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Available for Opportunities
+      </div>
+
+      <h1 class="hero-title">
+        Turning Data<br />
+        into <span class="gradient-text">Decisions.</span>
+      </h1>
+
+      <p class="hero-sub">
+        BCA Graduate&nbsp;|&nbsp;
+        <span class="typed-text" id="typed-text" aria-live="polite"></span>
+        <span class="cursor" aria-hidden="true">|</span>
+      </p>
+
+      <p class="hero-intro">
+        Motivated and detail-oriented BCA graduate with strong interest in
+        <strong>Data Analytics</strong>, Data Cleaning, Report Generation, and
+        Machine Learning fundamentals. Passionate about converting messy data
+        into meaningful business insights.
+      </p>
+
+      <div class="hero-cta">
+        <a href="SahilResume_Data_Analyst.pdf.pdf" download class="btn btn-primary" id="hero-resume-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Resume
+        </a>
+        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        <a href="https://linkedin.com/in/sahil-bhavsar" target="_blank" rel="noopener noreferrer" class="btn btn-icon" aria-label="LinkedIn Profile">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/bhavsarsahil" target="_blank" rel="noopener noreferrer" class="btn btn-icon" aria-label="GitHub Profile">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+      </div>
+
+      <!-- Stats Counter -->
+      <div class="stats-bar">
+        <div class="stat-item">
+          <span class="stat-num" data-target="4">0</span>
+          <span class="stat-label">Projects Completed</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="12">0</span>
+          <span class="stat-label">Skills Learned</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="500" data-suffix="+">0</span>
+          <span class="stat-label">Practice Hours</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="2025">0</span>
+          <span class="stat-label">BCA Graduate</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="chart-mock">
+        <div class="chart-header">
+          <span class="chart-title">Data Analysis Dashboard</span>
+          <div class="chart-dots"><span></span><span></span><span></span></div>
+        </div>
+        <div class="bar-chart">
+          <div class="bar-group" style="--h:72%"><div class="bar"></div><span>Jan</span></div>
+          <div class="bar-group" style="--h:55%"><div class="bar"></div><span>Feb</span></div>
+          <div class="bar-group" style="--h:88%"><div class="bar"></div><span>Mar</span></div>
+          <div class="bar-group" style="--h:64%"><div class="bar"></div><span>Apr</span></div>
+          <div class="bar-group" style="--h:91%"><div class="bar"></div><span>May</span></div>
+          <div class="bar-group" style="--h:48%"><div class="bar"></div><span>Jun</span></div>
+        </div>
+        <div class="kpi-row">
+          <div class="kpi"><span class="kpi-val">94.2%</span><span class="kpi-lbl">Accuracy</span></div>
+          <div class="kpi"><span class="kpi-val">2.4K</span><span class="kpi-lbl">Records</span></div>
+          <div class="kpi"><span class="kpi-val">↑18%</span><span class="kpi-lbl">Growth</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════  ABOUT  ═══════════════════════ -->
+  <section id="about" class="section about-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// about_me</span>
+        <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-image-col reveal">
+          <div class="profile-card">
+            <div class="profile-avatar">
+              <div class="avatar-ring"></div>
+              <div class="avatar-initials">SB</div>
+            </div>
+            <div class="profile-info">
+              <h3>Sahil Bhavsar</h3>
+              <p>BCA Graduate, 2025</p>
+              <div class="profile-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                India
+              </div>
+            </div>
+            <div class="profile-tags">
+              <span class="tag">Data Analytics</span>
+              <span class="tag">Python</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Excel</span>
+              <span class="tag">Open to Work</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-text-col reveal">
+          <p class="about-para">
+            Sahil Bhavsar is a <strong>2025 BCA graduate</strong> with strong foundational knowledge
+            in computer applications and data analytics. He is actively building expertise in
+            <strong>Python, Pandas, Excel, SQL,</strong> and Machine Learning fundamentals.
+          </p>
+          <p class="about-para">
+            He has worked on <strong>data cleaning, transformation, and report generation</strong> projects.
+            He is highly motivated to start his career in a <strong>Data Analyst, Back Office Executive,</strong>
+            or Reporting role where he can contribute his analytical and problem-solving skills.
+          </p>
+
+          <div class="traits-grid">
+            <div class="trait-card">
+              <span class="trait-icon">🎯</span>
+              <span class="trait-name">Detail-Oriented</span>
+            </div>
+            <div class="trait-card">
+              <span class="trait-icon">⚡</span>
+              <span class="trait-name">Fast Learner</span>
+            </div>
+            <div class="trait-card">
+              <span class="trait-icon">🔄</span>
+              <span class="trait-name">Consistent</span>
+            </div>
+            <div class="trait-card">
+              <span class="trait-icon">🚀</span>
+              <span class="trait-name">Career-Focused</span>
+            </div>
+            <div class="trait-card">
+              <span class="trait-icon">🧠</span>
+              <span class="trait-name">Analytical Thinker</span>
+            </div>
+          </div>
+
+          <!-- Mini GitHub-style contribution grid -->
+          <div class="contribution-section">
+            <p class="contrib-label">Activity Streak</p>
+            <div class="contrib-grid" id="contrib-grid" aria-label="GitHub-style activity grid"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════  SKILLS  ═══════════════════════ -->
+  <section id="skills" class="section skills-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// skills.py</span>
+        <h2 class="section-title">Technical <span class="gradient-text">Skills</span></h2>
+      </div>
+
+      <div class="skills-grid">
+        <!-- Technical -->
+        <div class="skills-col reveal">
+          <h3 class="skills-sub">Technical Proficiency</h3>
+          <div class="skill-bars">
+            <div class="skill-bar-item" data-skill="Python" data-level="78">
+              <div class="skill-bar-header"><span class="skill-name">Python</span><span class="skill-percent">78%</span></div>
+              <div class="skill-track"><div class="skill-fill" style="--level:78%"></div></div>
+            </div>
+            <div class="skill-bar-item" data-skill="Pandas" data-level="75">
+              <div class="skill-bar-header"><span class="skill-name">Pandas</span><span class="skill-percent">75%</span></div>
+              <div class="skill-track"><div class="skill-fill" style="--level:75%"></div></div>
+            </div>
+            <div class="skill-bar-item" data-skill="NumPy" data-level="68">
+              <div class="skill-bar-header"><span class="skill-name">NumPy</span><span class="skill-percent">68%</span></div>
+              <div class="skill-track"><div class="skill-fill" style="--level:68%"></div></div>
+            </div>
+            <div class="skill-bar-item" data-skill="Excel" data-level="82">
+              <div class="skill-bar-header"><span class="skill-name">Excel</span><span class="skill-percent">82%</span></div>
+              <div class="skill-track"><div class="skill-fill" style="--level:82%"></div></div>
+            </div>
+            <div class="skill-bar-item" data-skill="SQL" data-level="60">
+              <div class="skill-bar-header"><span class="skill-name">SQL (Basic)</span><span class="skill-percent">60%</span></div>
+              <div class="skill-track"><div class="skill-fill" style="--level:60%"></div></div>
+            </div>
+            <div class="skill-bar-item" data-skill="Data Cleaning" data-level="80">
+              <div class="skill-bar-header"><span class="skill-name">Data Cleaning</span><span class="skill-percent">80%</span></div>
+              <div class="skill-track"><div class="skill-fill" style="--level:80%"></div></div>
+            </div>
+            <div class="skill-bar-item" data-skill="Data Visualization" data-level="65">
+              <div class="skill-bar-header"><span class="skill-name">Data Visualization</span><span class="skill-percent">65%</span></div>
+              <div class="skill-track"><div class="skill-fill" style="--level:65%"></div></div>
+            </div>
+            <div class="skill-bar-item" data-skill="Machine Learning" data-level="40">
+              <div class="skill-bar-header"><span class="skill-name">Machine Learning (Beginner)</span><span class="skill-percent">40%</span></div>
+              <div class="skill-track"><div class="skill-fill" style="--level:40%"></div></div>
+            </div>
+            <div class="skill-bar-item" data-skill="Report Generation" data-level="78">
+              <div class="skill-bar-header"><span class="skill-name">Report Generation</span><span class="skill-percent">78%</span></div>
+              <div class="skill-track"><div class="skill-fill" style="--level:78%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="skills-col reveal">
+          <h3 class="skills-sub">Soft Skills</h3>
+          <div class="soft-skills-wrap">
+            <div class="soft-skill-card">
+              <div class="soft-skill-icon">🧩</div>
+              <div class="soft-skill-info">
+                <div class="soft-skill-name">Problem Solving</div>
+                <div class="soft-skill-bar-wrap"><div class="soft-skill-bar" style="--level:85%"></div></div>
+              </div>
+            </div>
+            <div class="soft-skill-card">
+              <div class="soft-skill-icon">💬</div>
+              <div class="soft-skill-info">
+                <div class="soft-skill-name">Communication</div>
+                <div class="soft-skill-bar-wrap"><div class="soft-skill-bar" style="--level:75%"></div></div>
+              </div>
+            </div>
+            <div class="soft-skill-card">
+              <div class="soft-skill-icon">🔍</div>
+              <div class="soft-skill-info">
+                <div class="soft-skill-name">Analytical Thinking</div>
+                <div class="soft-skill-bar-wrap"><div class="soft-skill-bar" style="--level:88%"></div></div>
+              </div>
+            </div>
+            <div class="soft-skill-card">
+              <div class="soft-skill-icon">🌀</div>
+              <div class="soft-skill-info">
+                <div class="soft-skill-name">Adaptability</div>
+                <div class="soft-skill-bar-wrap"><div class="soft-skill-bar" style="--level:82%"></div></div>
+              </div>
+            </div>
+            <div class="soft-skill-card">
+              <div class="soft-skill-icon">⏱️</div>
+              <div class="soft-skill-info">
+                <div class="soft-skill-name">Time Management</div>
+                <div class="soft-skill-bar-wrap"><div class="soft-skill-bar" style="--level:79%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tech Icons Grid -->
+          <h3 class="skills-sub" style="margin-top:2rem">Tools & Technologies</h3>
+          <div class="tech-icons-grid">
+            <div class="tech-icon-item">
+              <div class="tech-icon-badge py">Py</div>
+              <span>Python</span>
+            </div>
+            <div class="tech-icon-item">
+              <div class="tech-icon-badge pd">Pd</div>
+              <span>Pandas</span>
+            </div>
+            <div class="tech-icon-item">
+              <div class="tech-icon-badge np">Np</div>
+              <span>NumPy</span>
+            </div>
+            <div class="tech-icon-item">
+              <div class="tech-icon-badge xl">XL</div>
+              <span>Excel</span>
+            </div>
+            <div class="tech-icon-item">
+              <div class="tech-icon-badge sql">SQL</div>
+              <span>SQL</span>
+            </div>
+            <div class="tech-icon-item">
+              <div class="tech-icon-badge ml">ML</div>
+              <span>Sklearn</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════  PROJECTS  ═══════════════════════ -->
+  <section id="projects" class="section projects-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// projects[]</span>
+        <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <article class="project-card reveal" tabindex="0">
+          <div class="project-card-header">
+            <div class="project-icon" aria-hidden="true">📊</div>
+            <div class="project-number">#01</div>
+          </div>
+          <h3 class="project-title">Hotel Booking Data Analysis</h3>
+          <p class="project-desc">
+            Performed comprehensive exploratory data analysis on a hotel booking dataset.
+            Cleaned raw data, handled missing values, and uncovered patterns in booking
+            cancellations to generate actionable business insights.
+          </p>
+          <div class="project-meta">
+            <div class="project-detail">
+              <span class="detail-label">Tools Used</span>
+              <div class="detail-tags">
+                <span class="tag-sm">Python</span><span class="tag-sm">Pandas</span>
+                <span class="tag-sm">Matplotlib</span><span class="tag-sm">Jupyter</span>
+              </div>
+            </div>
+            <div class="project-detail">
+              <span class="detail-label">Key Learning</span>
+              <p class="detail-text">EDA techniques, identifying cancellation patterns, working with real-world messy datasets.</p>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/bhavsarsahil" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Hotel Booking project on GitHub">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              View on GitHub
+            </a>
+            <span class="project-status status-complete">Completed</span>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card reveal" tabindex="0">
+          <div class="project-card-header">
+            <div class="project-icon" aria-hidden="true">🚗</div>
+            <div class="project-number">#02</div>
+          </div>
+          <h3 class="project-title">Car Price Data Cleaning</h3>
+          <p class="project-desc">
+            Tackled a real-world messy dataset with inconsistent price formats. Converted
+            values in lakh, crore, and comma-separated strings into clean numeric format,
+            standardizing the dataset for downstream analysis and modeling.
+          </p>
+          <div class="project-meta">
+            <div class="project-detail">
+              <span class="detail-label">Tools Used</span>
+              <div class="detail-tags">
+                <span class="tag-sm">Python</span><span class="tag-sm">Pandas</span>
+                <span class="tag-sm">Regex</span><span class="tag-sm">NumPy</span>
+              </div>
+            </div>
+            <div class="project-detail">
+              <span class="detail-label">Key Learning</span>
+              <p class="detail-text">String manipulation, regex parsing, data standardization and type conversion pipelines.</p>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/bhavsarsahil" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Car Price project on GitHub">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              View on GitHub
+            </a>
+            <span class="project-status status-complete">Completed</span>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card reveal" tabindex="0">
+          <div class="project-card-header">
+            <div class="project-icon" aria-hidden="true">📈</div>
+            <div class="project-number">#03</div>
+          </div>
+          <h3 class="project-title">Basic Machine Learning Practice</h3>
+          <p class="project-desc">
+            Explored supervised learning fundamentals by implementing regression and
+            classification models. Focused intensely on understanding data preprocessing,
+            train-test splits, and model evaluation metrics.
+          </p>
+          <div class="project-meta">
+            <div class="project-detail">
+              <span class="detail-label">Tools Used</span>
+              <div class="detail-tags">
+                <span class="tag-sm">Python</span><span class="tag-sm">Scikit-learn</span>
+                <span class="tag-sm">Pandas</span><span class="tag-sm">Matplotlib</span>
+              </div>
+            </div>
+            <div class="project-detail">
+              <span class="detail-label">Key Learning</span>
+              <p class="detail-text">Supervised learning concepts, preprocessing pipelines, model evaluation and tuning.</p>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/bhavsarsahil" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View ML project on GitHub">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              View on GitHub
+            </a>
+            <span class="project-status status-wip">Learning</span>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card reveal" tabindex="0">
+          <div class="project-card-header">
+            <div class="project-icon" aria-hidden="true">📑</div>
+            <div class="project-number">#04</div>
+          </div>
+          <h3 class="project-title">Automated Report Generation</h3>
+          <p class="project-desc">
+            Designed and automated business-style reports using Python and Excel.
+            Structured data summaries, created formatted output files, and focused
+            on producing clean, professional-grade analytical reports.
+          </p>
+          <div class="project-meta">
+            <div class="project-detail">
+              <span class="detail-label">Tools Used</span>
+              <div class="detail-tags">
+                <span class="tag-sm">Python</span><span class="tag-sm">Excel</span>
+                <span class="tag-sm">openpyxl</span><span class="tag-sm">Pandas</span>
+              </div>
+            </div>
+            <div class="project-detail">
+              <span class="detail-label">Key Learning</span>
+              <p class="detail-text">Business report structuring, Excel automation, professional data presentation formats.</p>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/bhavsarsahil" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Report Generation project on GitHub">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              View on GitHub
+            </a>
+            <span class="project-status status-complete">Completed</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════  RESUME  ═══════════════════════ -->
+  <section id="resume" class="section resume-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// resume.pdf</span>
+        <h2 class="section-title">My <span class="gradient-text">Resume</span></h2>
+      </div>
+
+      <div class="resume-layout">
+        <div class="resume-card reveal">
+          <!-- Education -->
+          <div class="resume-block">
+            <div class="resume-block-icon" aria-hidden="true">🎓</div>
+            <div class="resume-block-content">
+              <h3>Education</h3>
+              <div class="resume-entry">
+                <div class="entry-header">
+                  <strong>Bachelor of Computer Applications (BCA)</strong>
+                  <span class="entry-date">2022 – 2025</span>
+                </div>
+                <p class="entry-sub">University — India</p>
+                <p class="entry-note">Focused on Data Analytics, Database Management, Programming & Software Development.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Objective -->
+          <div class="resume-block">
+            <div class="resume-block-icon" aria-hidden="true">🎯</div>
+            <div class="resume-block-content">
+              <h3>Career Objective</h3>
+              <p class="objective-text">
+                A motivated and detail-oriented BCA graduate seeking an entry-level position as a
+                <strong>Data Analyst, Business Analyst,</strong> or <strong>Reporting Analyst</strong>,
+                where I can leverage my analytical skills, Python expertise, and passion for data
+                to drive meaningful business insights.
+              </p>
+            </div>
+          </div>
+
+          <!-- Skills Summary -->
+          <div class="resume-block">
+            <div class="resume-block-icon" aria-hidden="true">⚙️</div>
+            <div class="resume-block-content">
+              <h3>Skills Summary</h3>
+              <div class="skills-summary-grid">
+                <div class="summary-item"><span class="summary-dot"></span>Python &amp; Pandas</div>
+                <div class="summary-item"><span class="summary-dot"></span>NumPy &amp; Matplotlib</div>
+                <div class="summary-item"><span class="summary-dot"></span>Excel (Advanced)</div>
+                <div class="summary-item"><span class="summary-dot"></span>SQL (Basic)</div>
+                <div class="summary-item"><span class="summary-dot"></span>Data Cleaning</div>
+                <div class="summary-item"><span class="summary-dot"></span>EDA &amp; Visualization</div>
+                <div class="summary-item"><span class="summary-dot"></span>Report Generation</div>
+                <div class="summary-item"><span class="summary-dot"></span>ML Fundamentals</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="resume-cta-col reveal">
+          <div class="resume-download-card">
+            <div class="dl-icon" aria-hidden="true">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="12" y1="18" x2="12" y2="12"/>
+                <line x1="9" y1="15" x2="15" y2="15"/>
+              </svg>
+            </div>
+            <h3>Download Resume</h3>
+            <p>Get the full PDF version of my resume with detailed project info and contact details.</p>
+            <a href="SahilResume_Data_Analyst.pdf.pdf" download class="btn btn-primary" id="resume-dl-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </a>
+            <a href="#contact" class="btn btn-secondary" style="margin-top:0.75rem; display:block; text-align:center;">Contact Me</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════  CONTACT  ═══════════════════════ -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// contact.send()</span>
+        <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+        <p class="section-desc">I'm open to entry-level opportunities in Data Analytics, Reporting, or Back-Office roles. Feel free to reach out!</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="contact-item">
+            <div class="contact-icon" aria-label="Email">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <p class="contact-label">Email</p>
+              <a href="mailto:sahilbhavsar@example.com" class="contact-value">sahilbhavsar@example.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div>
+              <p class="contact-label">LinkedIn</p>
+              <a href="https://linkedin.com/in/sahil-bhavsar" target="_blank" rel="noopener noreferrer" class="contact-value">linkedin.com/in/sahil-bhavsar</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon" aria-label="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </div>
+            <div>
+              <p class="contact-label">GitHub</p>
+              <a href="https://github.com/bhavsarsahil" target="_blank" rel="noopener noreferrer" class="contact-value">github.com/sahil-bhavsar</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon" aria-label="Location">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <p class="contact-label">Location</p>
+              <span class="contact-value">India</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-col reveal">
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-group">
+              <label for="cf-name">Your Name</label>
+              <input type="text" id="cf-name" name="name" placeholder="Jane Smith" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="cf-email">Your Email</label>
+              <input type="email" id="cf-email" name="email" placeholder="jane@company.com" required autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="cf-subject">Subject</label>
+              <input type="text" id="cf-subject" name="subject" placeholder="Job Opportunity / Collaboration" required />
+            </div>
+            <div class="form-group">
+              <label for="cf-message">Message</label>
+              <textarea id="cf-message" name="message" rows="5" placeholder="Tell me about the opportunity..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit" id="form-submit-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Send Message
+            </button>
+            <div class="form-success" id="form-success" role="alert" aria-live="polite" hidden>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Message sent! I'll get back to you soon.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════  FOOTER  ═══════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="#home" class="nav-logo footer-logo" aria-label="Back to top">
+          <span class="logo-bracket">&lt;</span>SB<span class="logo-bracket">/&gt;</span>
+        </a>
+        <ul class="footer-links" role="list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="footer-socials">
+          <a href="https://linkedin.com/in/sahil-bhavsar" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://github.com/bhavsarsahil" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sahil Bhavsar | Aspiring Data Analyst</p>
+        <p class="footer-made">Crafted with <span aria-label="love">❤️</span> & Python Spirit</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top -->
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top" title="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
