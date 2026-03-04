@@ -212,23 +212,24 @@ function buildContribGrid() {
   }
 }
 buildContribGrid();
-
+//start
 // ─── Contact form (front-end only validation + success state) ────
 const contactForm = document.getElementById('contact-form');
 const formSubmitBtn = document.getElementById('form-submit-btn');
 const formSuccess = document.getElementById('form-success');
 
-contactForm?.addEventListener('submit', e => {
+contactForm?.addEventListener('submit', function (e) {
   e.preventDefault();
 
-  const name = document.getElementById('cf-name');
-  const email = document.getElementById('cf-email');
-  const subject = document.getElementById('cf-subject');
-  const message = document.getElementById('cf-message');
+  const nameEl = document.getElementById('cf-name');
+  const emailEl = document.getElementById('cf-email');
+  const subjectEl = document.getElementById('cf-subject');
+  const msgEl = document.getElementById('cf-message');
 
-  // Basic validation
+
+  // ── Validation ──────────────────────────────────────────────
   let valid = true;
-  [name, email, subject, message].forEach(field => {
+  [nameEl, emailEl, subjectEl, msgEl].forEach(function (field) {
     if (!field.value.trim()) {
       field.style.borderColor = 'rgba(239,68,68,0.6)';
       field.style.boxShadow = '0 0 0 3px rgba(239,68,68,0.1)';
@@ -240,27 +241,44 @@ contactForm?.addEventListener('submit', e => {
   });
 
   const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (email && !emailRx.test(email.value)) {
-    email.style.borderColor = 'rgba(239,68,68,0.6)';
+  if (!emailRx.test(emailEl.value)) {
+    emailEl.style.borderColor = 'rgba(239,68,68,0.6)';
     valid = false;
   }
 
   if (!valid) return;
 
-  // Simulate submission
-  formSubmitBtn.textContent = 'Sending…';
+  // ── Send to Firebase ─────────────────────────────────────────
+  formSubmitBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Sending…';
   formSubmitBtn.disabled = true;
 
-  setTimeout(() => {
-    contactForm.reset();
-    formSubmitBtn.textContent = 'Send Message';
-    formSubmitBtn.disabled = false;
-    if (formSuccess) {
-      formSuccess.hidden = false;
-      setTimeout(() => { formSuccess.hidden = true; }, 5000);
-    }
-  }, 1200);
+  var data = {
+    name: nameEl.value.trim(),
+    email: emailEl.value.trim(),
+    subject: subjectEl.value.trim(),
+    message: msgEl.value.trim(),
+    timestamp: new Date().toISOString()
+  };
+
+  firebase.database().ref('contacts').push(data)
+    .then(function () {
+      // ✅ Success
+      contactForm.reset();
+      formSubmitBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Message';
+      formSubmitBtn.disabled = false;
+      if (formSuccess) {
+        formSuccess.hidden = false;
+        setTimeout(function () { formSuccess.hidden = true; }, 5000);
+      }
+    })
+    .catch(function (error) {
+      // ❌ Error
+      formSubmitBtn.innerHTML = 'Send Message';
+      formSubmitBtn.disabled = false;
+      alert('Error sending message. Please try again.\n' + error.message);
+    });
 });
+//end
 
 // ─── Scroll to top ───────────────────────────────────────────────
 document.getElementById('scroll-top')?.addEventListener('click', () => {
@@ -287,4 +305,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
 
