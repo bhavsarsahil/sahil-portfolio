@@ -1092,6 +1092,7 @@ button {
   background: linear-gradient(135deg, rgba(0, 212, 255, 0.04) 0%, transparent 60%);
   opacity: 0;
   transition: opacity 0.3s ease;
+   pointer-events:none;
 }
 
 .project-card:hover {
@@ -1801,3 +1802,4 @@ a.contact-value:hover {
     grid-template-columns: repeat(18, 1fr);
   }
 }
+
