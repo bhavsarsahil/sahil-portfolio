@@ -814,30 +814,24 @@ button {
   font-family: var(--font-mono);
 }
 
-.contrib-grid {
-  display: grid;
-  grid-template-columns: repeat(52, 1fr);
-  gap: 3px;
+.github-chart-wrap {
+  margin-top: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  padding: 0.75rem;
+  overflow: hidden;
 }
 
-.contrib-cell {
-  aspect-ratio: 1;
-  border-radius: 2px;
-  transition: transform 0.2s;
-  min-width: 10px;
+.github-chart-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  /* Invert so the chart adapts to the dark background */
+  filter: invert(1) hue-rotate(180deg) brightness(0.85);
 }
 
-.contrib-cell:hover {
-  transform: scale(1.5);
-}
-
-.level-0 {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.level-1 {
-  background: rgba(0, 212, 255, 0.15);
-}
 
 .level-2 {
   background: rgba(0, 212, 255, 0.35);
@@ -1092,7 +1086,7 @@ button {
   background: linear-gradient(135deg, rgba(0, 212, 255, 0.04) 0%, transparent 60%);
   opacity: 0;
   transition: opacity 0.3s ease;
-   pointer-events:none;
+  pointer-events: none;
 }
 
 .project-card:hover {
@@ -1808,5 +1802,3 @@ a.contact-value:hover {
     grid-template-columns: repeat(18, 1fr);
   }
 }
-
-
