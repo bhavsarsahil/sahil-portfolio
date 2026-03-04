@@ -3,7 +3,7 @@
 Welcome to the source code for my personal portfolio! This is a modern, responsive, and performance-optimized single-page application built to showcase my skills, projects, and career objective as a Data Analyst.
 
 ## 🔗 Live Preview
-[Insert Live Link Here - e.g., sahil-bhavsar.netlify.app]
+https://sahil-bhavsar-portfolio.netlify.app/
 
 ---
 
