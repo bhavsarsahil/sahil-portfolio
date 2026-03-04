@@ -691,9 +691,30 @@
   <button class="scroll-top" id="scroll-top" aria-label="Scroll to top" title="Scroll to top">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
+  <!-- ═══ FIREBASE SDK ═══════════════════════════════════════════
+       STEP: Replace the firebaseConfig values below with YOUR
+       own values from Firebase Console → Project Settings → Web App
+  ════════════════════════════════════════════════════════════════ -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+  <script>
+    // ▼▼▼ PASTE YOUR FIREBASE CONFIG HERE ▼▼▼
+    const firebaseConfig = {
+  apiKey: "AIzaSyDdw5qjMuuJrx0D8VFa_ILcCcYo9H0wu0Q",
+  authDomain: "sahil-portfolio-dc008.firebaseapp.com",
+  projectId: "sahil-portfolio-dc008",
+  storageBucket: "sahil-portfolio-dc008.firebasestorage.app",
+  messagingSenderId: "1009169855288",
+  appId: "1:1009169855288:web:bbd89d17b797c7c31d87cd",
+  measurementId: "G-4ETB1JYN1K"
+};
+    // ▲▲▲ PASTE YOUR FIREBASE CONFIG HERE ▲▲▲
+    firebase.initializeApp(firebaseConfig);
+  </script>
 
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
