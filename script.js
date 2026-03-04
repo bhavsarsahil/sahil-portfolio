@@ -5,7 +5,7 @@
 'use strict';
 
 // ─── Navbar scroll effect & active link ─────────────────────────
-const navbar   = document.getElementById('navbar');
+const navbar = document.getElementById('navbar');
 const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('section[id]');
 
@@ -33,19 +33,28 @@ onScroll();
 const hamburger = document.getElementById('hamburger');
 const navLinksEl = document.getElementById('nav-links');
 
-hamburger?.addEventListener('click', () => {
-  const isOpen = navLinksEl.classList.toggle('open');
+hamburger && hamburger.addEventListener('click', function () {
+  var isOpen = navLinksEl.classList.toggle('open');
   hamburger.classList.toggle('open', isOpen);
-  hamburger.setAttribute('aria-expanded', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 });
 
-// Close menu on link click
-navLinksEl?.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinksEl.classList.remove('open');
-    hamburger?.classList.remove('open');
-    hamburger?.setAttribute('aria-expanded', 'false');
+// Close when a nav link is clicked
+document.querySelectorAll('.nav-link').forEach(function (link) {
+  link.addEventListener('click', function () {
+    navLinksEl && navLinksEl.classList.remove('open');
+    hamburger && hamburger.classList.remove('open');
+    hamburger && hamburger.setAttribute('aria-expanded', 'false');
   });
+});
+
+// Close when clicking outside
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('#navbar') && navLinksEl && navLinksEl.classList.contains('open')) {
+    navLinksEl.classList.remove('open');
+    hamburger && hamburger.classList.remove('open');
+    hamburger && hamburger.setAttribute('aria-expanded', 'false');
+  }
 });
 
 // ─── Typing animation ────────────────────────────────────────────
@@ -98,10 +107,10 @@ function animateCounter(el) {
 }
 
 // ─── Scroll reveal + lazy-trigger animations ─────────────────────
-const revealEls    = document.querySelectorAll('.reveal');
-const skillFills   = document.querySelectorAll('.skill-fill');
-const softBars     = document.querySelectorAll('.soft-skill-bar');
-const statNums     = document.querySelectorAll('.stat-num');
+const revealEls = document.querySelectorAll('.reveal');
+const skillFills = document.querySelectorAll('.skill-fill');
+const softBars = document.querySelectorAll('.soft-skill-bar');
+const statNums = document.querySelectorAll('.stat-num');
 let statsTriggered = false;
 let skillsTriggered = false;
 
@@ -122,7 +131,7 @@ if (skillsSection) {
     if (entries[0].isIntersecting && !skillsTriggered) {
       skillsTriggered = true;
       skillFills.forEach(bar => bar.classList.add('animated'));
-      softBars.forEach(bar  => bar.classList.add('animated'));
+      softBars.forEach(bar => bar.classList.add('animated'));
       skillObs.disconnect();
     }
   }, { threshold: 0.2 });
@@ -150,10 +159,10 @@ function createParticle() {
   const p = document.createElement('div');
   p.className = 'particle';
   const size = Math.random() * 4 + 2;
-  const x    = Math.random() * 100;
-  const dur  = Math.random() * 15 + 10;
-  const del  = Math.random() * 10;
-  const hue  = Math.random() > 0.5 ? '196' : '210';
+  const x = Math.random() * 100;
+  const dur = Math.random() * 15 + 10;
+  const del = Math.random() * 10;
+  const hue = Math.random() > 0.5 ? '196' : '210';
 
   p.style.cssText = `
     width:${size}px; height:${size}px;
@@ -161,7 +170,7 @@ function createParticle() {
     background:hsl(${hue},100%,60%);
     animation-duration:${dur}s;
     animation-delay:${del}s;
-    box-shadow: 0 0 ${size*2}px hsl(${hue},100%,60%);
+    box-shadow: 0 0 ${size * 2}px hsl(${hue},100%,60%);
   `;
   return p;
 }
@@ -177,9 +186,9 @@ function buildContribGrid() {
   const grid = document.getElementById('contrib-grid');
   if (!grid) return;
 
-  const WEEKS  = 52;
-  const DAYS   = 7;
-  const LEVELS = [0,1,2,3,4];
+  const WEEKS = 52;
+  const DAYS = 7;
+  const LEVELS = [0, 1, 2, 3, 4];
 
   // Generate pseudo-random activity (reproducible seed-ish pattern)
   for (let w = 0; w < WEEKS; w++) {
@@ -187,8 +196,8 @@ function buildContribGrid() {
       const cell = document.createElement('div');
       cell.className = 'contrib-cell';
       // Weight towards recent weeks being more active
-      const recency   = w / WEEKS;
-      const rand      = Math.random();
+      const recency = w / WEEKS;
+      const rand = Math.random();
       const threshold = 0.35 + recency * 0.25;
       let level = 0;
 
@@ -205,15 +214,15 @@ function buildContribGrid() {
 buildContribGrid();
 
 // ─── Contact form (front-end only validation + success state) ────
-const contactForm    = document.getElementById('contact-form');
-const formSubmitBtn  = document.getElementById('form-submit-btn');
-const formSuccess    = document.getElementById('form-success');
+const contactForm = document.getElementById('contact-form');
+const formSubmitBtn = document.getElementById('form-submit-btn');
+const formSuccess = document.getElementById('form-success');
 
 contactForm?.addEventListener('submit', e => {
   e.preventDefault();
 
-  const name    = document.getElementById('cf-name');
-  const email   = document.getElementById('cf-email');
+  const name = document.getElementById('cf-name');
+  const email = document.getElementById('cf-email');
   const subject = document.getElementById('cf-subject');
   const message = document.getElementById('cf-message');
 
@@ -222,11 +231,11 @@ contactForm?.addEventListener('submit', e => {
   [name, email, subject, message].forEach(field => {
     if (!field.value.trim()) {
       field.style.borderColor = 'rgba(239,68,68,0.6)';
-      field.style.boxShadow   = '0 0 0 3px rgba(239,68,68,0.1)';
+      field.style.boxShadow = '0 0 0 3px rgba(239,68,68,0.1)';
       valid = false;
     } else {
       field.style.borderColor = '';
-      field.style.boxShadow   = '';
+      field.style.boxShadow = '';
     }
   });
 
@@ -240,12 +249,12 @@ contactForm?.addEventListener('submit', e => {
 
   // Simulate submission
   formSubmitBtn.textContent = 'Sending…';
-  formSubmitBtn.disabled    = true;
+  formSubmitBtn.disabled = true;
 
   setTimeout(() => {
     contactForm.reset();
     formSubmitBtn.textContent = 'Send Message';
-    formSubmitBtn.disabled    = false;
+    formSubmitBtn.disabled = false;
     if (formSuccess) {
       formSuccess.hidden = false;
       setTimeout(() => { formSuccess.hidden = true; }, 5000);
@@ -270,7 +279,7 @@ document.querySelectorAll('.project-card').forEach(card => {
 
 // ─── Smooth internal link scroll ─────────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
+  anchor.addEventListener('click', function (e) {
     const target = document.querySelector(this.getAttribute('href'));
     if (target) {
       e.preventDefault();
