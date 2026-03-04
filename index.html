@@ -206,8 +206,8 @@
               <span class="trait-name">Analytical Thinker</span>
             </div>
           </div>
-          
-            <!-- Real GitHub Contribution Chart -->
+
+          <!-- Real GitHub Contribution Chart -->
           <div class="contribution-section">
             <p class="contrib-label">
               GitHub Activity — <a href="https://github.com/bhavsarsahil" target="_blank" rel="noopener noreferrer" style="color:var(--clr-accent); font-size:0.75rem;">@bhavsarsahil</a>
@@ -221,6 +221,7 @@
                 onerror="this.parentElement.innerHTML='<p style=\'color:var(--clr-muted);font-size:0.8rem\'>Chart unavailable — visit <a href=\'https://github.com/bhavsarsahil\' target=\'_blank\' style=\'color:var(--clr-accent)\'>github.com/bhavsarsahil</a></p>'"
               />
             </div>
+          </div>
         </div>
       </div>
     </div>
@@ -706,6 +707,7 @@
   ════════════════════════════════════════════════════════════════ -->
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics-compat.js"></script>
   <script>
     // ▼▼▼ PASTE YOUR FIREBASE CONFIG HERE ▼▼▼
     const firebaseConfig = {
@@ -720,14 +722,12 @@
 };
     // ▲▲▲ PASTE YOUR FIREBASE CONFIG HERE ▲▲▲
     firebase.initializeApp(firebaseConfig);
+    firebase.analytics(); // ← activates Google Analytics automatically
   </script>
 
   <script src="script.js"></script>
 </body>
 </html>
-
-
-
 
 
 
