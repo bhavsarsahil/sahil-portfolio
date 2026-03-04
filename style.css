@@ -1497,7 +1497,7 @@ a.contact-value:hover {
 }
 
 .form-success {
-  display: flex;
+  display: none;
   align-items: center;
   gap: 0.6rem;
   margin-top: 1rem;
@@ -1509,6 +1509,12 @@ a.contact-value:hover {
   font-size: 0.88rem;
   font-weight: 500;
 }
+
+/* Show as flex only when JS removes the hidden attribute */
+.form-success:not([hidden]) {
+  display: flex;
+}
+
 
 /* ═══════════════════════  FOOTER  ═══════════════════════ */
 .footer {
@@ -1802,4 +1808,5 @@ a.contact-value:hover {
     grid-template-columns: repeat(18, 1fr);
   }
 }
+
 
