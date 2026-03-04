@@ -98,9 +98,9 @@ function animateCounter(el) {
   const step = target / (duration / 16);
   let current = 0;
 
-  const tick = () => {
+   const tick = () => {
     current = Math.min(current + step, target);
-    el.textContent = Math.floor(current).toLocaleString() + suffix;
+    el.textContent = String(Math.floor(current)) + suffix;
     if (current < target) requestAnimationFrame(tick);
   };
   requestAnimationFrame(tick);
@@ -287,3 +287,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
