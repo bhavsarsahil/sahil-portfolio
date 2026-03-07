@@ -182,36 +182,171 @@ if (particleContainer) {
 }
 
 // ─── GitHub-style contribution grid ─────────────────────────────
-function buildContribGrid() {
-  const grid = document.getElementById('contrib-grid');
-  if (!grid) return;
+// function buildContribGrid() {
+//   const grid = document.getElementById('contrib-grid');
+//   if (!grid) return;
 
-  const WEEKS = 52;
-  const DAYS = 7;
-  const LEVELS = [0, 1, 2, 3, 4];
+//   const WEEKS = 52;
+//   const DAYS = 7;
+//   const LEVELS = [0, 1, 2, 3, 4];
+// ─── Real GitHub Contribution Chart ──────────────────────────────
+(async function () {
+  var origGrid = document.getElementById('contrib-grid');
+  if (!origGrid) return;
+  var wrap = origGrid.parentElement;
+
+  var CELL = 11, GAP = 3, STEP = CELL + GAP;
+  var MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var DAY_LABELS = ['', 'Mon', '', 'Wed', '', 'Fri', ''];
 
   // Generate pseudo-random activity (reproducible seed-ish pattern)
-  for (let w = 0; w < WEEKS; w++) {
-    for (let d = 0; d < DAYS; d++) {
-      const cell = document.createElement('div');
-      cell.className = 'contrib-cell';
-      // Weight towards recent weeks being more active
-      const recency = w / WEEKS;
-      const rand = Math.random();
-      const threshold = 0.35 + recency * 0.25;
-      let level = 0;
+//   for (let w = 0; w < WEEKS; w++) {
+//     for (let d = 0; d < DAYS; d++) {
+//       const cell = document.createElement('div');
+//       cell.className = 'contrib-cell';
+//       // Weight towards recent weeks being more active
+//       const recency = w / WEEKS;
+//       const rand = Math.random();
+//       const threshold = 0.35 + recency * 0.25;
+//       let level = 0;
 
-      if (rand > threshold) {
-        const r2 = Math.random();
-        level = r2 > 0.7 ? 4 : r2 > 0.5 ? 3 : r2 > 0.3 ? 2 : 1;
-      }
-      cell.classList.add(`level-${level}`);
-      cell.title = `${level > 0 ? level + ' contribution' + (level > 1 ? 's' : '') : 'No contributions'}`;
-      grid.appendChild(cell);
-    }
+//       if (rand > threshold) {
+//         const r2 = Math.random();
+//         level = r2 > 0.7 ? 4 : r2 > 0.5 ? 3 : r2 > 0.3 ? 2 : 1;
+//       }
+//       cell.classList.add(`level-${level}`);
+//       cell.title = `${level > 0 ? level + ' contribution' + (level > 1 ? 's' : '') : 'No contributions'}`;
+//       grid.appendChild(cell);
+//     }
+//   }
+// }
+// buildContribGrid();
+   // ── Tooltip ─────────────────────────────────────────────────
+  var tip = document.createElement('div');
+  tip.className = 'contrib-tooltip';
+  document.body.appendChild(tip);
+  function showTip(e, html) { tip.innerHTML = html; tip.classList.add('visible'); moveTip(e); }
+  function moveTip(e) {
+    var x = e.clientX + 14, y = e.clientY - 44;
+    tip.style.left = (x + tip.offsetWidth > window.innerWidth ? x - tip.offsetWidth - 20 : x) + 'px';
+    tip.style.top = y + 'px';
   }
-}
-buildContribGrid();
+  function hideTip() { tip.classList.remove('visible'); }
+
+  // ── Build full chart layout ──────────────────────────────────
+  function buildChart(days) {
+    var firstDow = days.length ? new Date(days[0].date + 'T00:00:00').getDay() : 0;
+
+    // Calculate month label positions
+    var monthLabels = [], col = 0, row = firstDow, lastMonth = -1;
+    days.forEach(function (day) {
+      var m = new Date(day.date + 'T00:00:00').getMonth();
+      if (m !== lastMonth) { monthLabels.push({ label: MONTH_NAMES[m], col: col }); lastMonth = m; }
+      row++;
+      if (row >= 7) { row = 0; col++; }
+    });
+
+    wrap.innerHTML = '';
+    var outer = document.createElement('div');
+    outer.className = 'contrib-outer';
+
+    // Month labels row
+    var monthsRow = document.createElement('div');
+    monthsRow.className = 'contrib-months-row';
+    var spacer = document.createElement('div');
+    spacer.className = 'contrib-day-spacer';
+    monthsRow.appendChild(spacer);
+    var monthsWrap = document.createElement('div');
+    monthsWrap.className = 'contrib-months-wrap';
+    var lastLabelCol = -6;
+    monthLabels.forEach(function (m) {
+      if (m.col - lastLabelCol >= 4) {
+        var span = document.createElement('span');
+        span.className = 'contrib-month-lbl';
+        span.textContent = m.label;
+        span.style.left = (m.col * STEP) + 'px';
+        monthsWrap.appendChild(span);
+        lastLabelCol = m.col;
+      }
+    });
+    monthsRow.appendChild(monthsWrap);
+    outer.appendChild(monthsRow);
+
+    // Main row: day labels + cells
+    var mainRow = document.createElement('div');
+    mainRow.className = 'contrib-main-row';
+    var dayCol = document.createElement('div');
+    dayCol.className = 'contrib-day-col';
+    DAY_LABELS.forEach(function (lbl) {
+      var d = document.createElement('div');
+      d.className = 'contrib-day-lbl';
+      d.textContent = lbl;
+      dayCol.appendChild(d);
+    });
+    mainRow.appendChild(dayCol);
+
+    var cellGrid = document.createElement('div');
+    cellGrid.className = 'contrib-grid';
+
+    // Padding cells to align first day to correct row
+    for (var p = 0; p < firstDow; p++) {
+      var pad = document.createElement('div');
+      pad.className = 'contrib-cell pad';
+      cellGrid.appendChild(pad);
+    }
+
+    // Real cells
+    days.forEach(function (day) {
+      var cell = document.createElement('div');
+      cell.className = 'contrib-cell level-' + (day.level || 0);
+      cell.addEventListener('mouseenter', function (e) {
+        var d = new Date(day.date + 'T00:00:00');
+        var ds = d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+        var c = day.count || 0;
+        var lbl = c === 0
+          ? '<span style="color:var(--clr-muted)">No contributions</span>'
+          : '<span style="color:var(--clr-accent);font-weight:600">' + c + ' contribution' + (c > 1 ? 's' : '') + '</span>';
+        showTip(e, lbl + '<br><span style="color:var(--clr-muted);font-size:0.7rem">' + ds + '</span>');
+      });
+      cell.addEventListener('mousemove', moveTip);
+      cell.addEventListener('mouseleave', hideTip);
+      cellGrid.appendChild(cell);
+    });
+
+    mainRow.appendChild(cellGrid);
+    outer.appendChild(mainRow);
+    wrap.appendChild(outer);
+  }
+
+  // ── Fetch BOTH current + previous year (rolling 12 months) ───
+  try {
+    var yr = new Date().getFullYear();
+    var BASE = 'https://github-contributions-api.jogruber.de/v4/bhavsarsahil?y=';
+    var results = await Promise.all([
+      fetch(BASE + (yr - 1)).then(function (r) { return r.json(); }),
+      fetch(BASE + yr).then(function (r) { return r.json(); })
+    ]);
+
+    // Merge, deduplicate by date, sort, take last 364 days
+    var seen = {};
+    var merged = [];
+    results.forEach(function (json) {
+      (json.contributions || []).forEach(function (d) {
+        if (!seen[d.date]) { seen[d.date] = true; merged.push(d); }
+      });
+    });
+    merged.sort(function (a, b) { return a.date < b.date ? -1 : 1; });
+    var days = merged.slice(-364);
+
+    if (days.length) { buildChart(days); return; }
+    throw new Error('empty');
+  } catch (_) {
+    wrap.innerHTML = '<img src="https://ghchart.rshah.org/00d4ff/bhavsarsahil"'
+      + ' alt="GitHub contributions" style="width:100%;height:auto;display:block;border-radius:4px;'
+      + 'filter:invert(1) hue-rotate(180deg) brightness(0.85)" />';
+  }
+})();
+
 //start
 // ─── Contact form (front-end only validation + success state) ────
 const contactForm = document.getElementById('contact-form');
@@ -305,5 +440,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
 
 
